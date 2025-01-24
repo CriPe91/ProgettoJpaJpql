@@ -1,8 +1,7 @@
 package org.example.entities;
-
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.util.Set;
+
+
 
 @Entity
 @Table(name = "catalogo")
@@ -20,8 +19,6 @@ public abstract class CatalogoBibliotecario {
     @Column(nullable = false)
     private int numeroPagine;
 
-    @ManyToMany(mappedBy = "elementoPrestato")
-    private Set<Prestito> prestiti;
 
     public CatalogoBibliotecario() {}
 

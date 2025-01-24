@@ -1,8 +1,8 @@
 package org.example.entities;
-
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
+
 
 @Entity
 @Table(name = "prestiti")
@@ -12,29 +12,27 @@ public class Prestito {
     @GeneratedValue
     private long id;
 
-    @Column(nullable = false)
     @ManyToOne
     @JoinColumn(name = "utente_id")
     private Utente utente;
 
-    @Column(nullable = false)
     @ManyToMany
     @JoinTable(name = "catalogo_prestiti",
             joinColumns = @JoinColumn(name = "catalogo_id"),
-            inverseJoinColumns = @JoinColumn(name = "prestiti_id")
+            inverseJoinColumns = @JoinColumn(name = "prestito_id")
     )
-    private Set<CatalogoBibliotecario> elementoPrestato;
+    private List<CatalogoBibliotecario> elementoPrestato;
 
     @Column(nullable = false)
     private LocalDate dataInizioPrestito;
     @Column(nullable = false)
     private LocalDate dataRestituzionePrevista;
-    @Column(nullable = false)
+    @Column(nullable = true)
     private LocalDate dataRestituzioneEffettiva;
 
     public Prestito() {}
 
-    public Prestito(Utente utente, Set<CatalogoBibliotecario> elementoPrestato, LocalDate dataInizioPrestito, LocalDate dataRestituzionePrevista, LocalDate dataRestituzioneEffettiva) {
+    public Prestito(Utente utente, List<CatalogoBibliotecario> elementoPrestato, LocalDate dataInizioPrestito, LocalDate dataRestituzionePrevista, LocalDate dataRestituzioneEffettiva) {
         this.utente = utente;
         this.elementoPrestato = elementoPrestato;
         this.dataInizioPrestito = dataInizioPrestito;
@@ -58,11 +56,11 @@ public class Prestito {
         this.utente = utente;
     }
 
-    public Set<CatalogoBibliotecario> getElementoPrestato() {
+    public List<CatalogoBibliotecario> getElementoPrestato() {
         return elementoPrestato;
     }
 
-    public void setElementoPrestato(Set<CatalogoBibliotecario> elementoPrestato) {
+    public void setElementoPrestato(List<CatalogoBibliotecario> elementoPrestato) {
         this.elementoPrestato = elementoPrestato;
     }
 
