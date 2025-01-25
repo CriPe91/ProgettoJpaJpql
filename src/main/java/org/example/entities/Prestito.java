@@ -12,7 +12,7 @@ public class Prestito {
     @GeneratedValue
     private long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "utente_id")
     private Utente utente;
 

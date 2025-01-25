@@ -74,6 +74,14 @@ public class Utente {
         this.numeroTessera = numeroTessera;
     }
 
+    public List<Prestito> getListaPrestiti() {
+        return listaPrestiti;
+    }
+
+    public void setListaPrestiti(List<Prestito> listaPrestiti) {
+        this.listaPrestiti = listaPrestiti;
+    }
+
     @Override
     public String toString() {
         return "Utente{" +
@@ -82,6 +90,7 @@ public class Utente {
                 ", cognome='" + cognome + '\'' +
                 ", dataNascita=" + dataNascita +
                 ", numeroTessera='" + numeroTessera + '\'' +
+                ", listaPrestiti=" + listaPrestiti +
                 '}';
     }
 }

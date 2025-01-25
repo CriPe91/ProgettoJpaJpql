@@ -7,9 +7,10 @@ import javax.persistence.*;
 @Table(name = "catalogo")
 @Inheritance(strategy = InheritanceType.JOINED)
 
+
 public abstract class CatalogoBibliotecario {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long codiceIsbn;
 
     @Column(nullable = false)
