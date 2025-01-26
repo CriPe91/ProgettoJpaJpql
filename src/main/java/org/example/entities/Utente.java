@@ -2,7 +2,6 @@ package org.example.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -10,7 +9,8 @@ import java.util.List;
 
 public class Utente {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private long id;
 
     @Column(nullable = false)

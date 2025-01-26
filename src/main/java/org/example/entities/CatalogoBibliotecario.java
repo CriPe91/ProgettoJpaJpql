@@ -16,16 +16,15 @@ public abstract class CatalogoBibliotecario {
     @Column(nullable = false)
     private String titolo;
     @Column(nullable = false)
-    private int annoPublicazione;
+    private int annoPubblicazione;
     @Column(nullable = false)
     private int numeroPagine;
-
 
     public CatalogoBibliotecario() {}
 
     public CatalogoBibliotecario(String titolo, int annoPublicazione, int numeroPagine) {
         this.titolo = titolo;
-        this.annoPublicazione = annoPublicazione;
+        this.annoPubblicazione = annoPublicazione;
         this.numeroPagine = numeroPagine;
     }
 
@@ -46,11 +45,11 @@ public abstract class CatalogoBibliotecario {
     }
 
     public int getAnnoPublicazione() {
-        return annoPublicazione;
+        return annoPubblicazione;
     }
 
     public void setAnnoPublicazione(int annoPublicazione) {
-        this.annoPublicazione = annoPublicazione;
+        this.annoPubblicazione = annoPublicazione;
     }
 
     public int getNumeroPagine() {
@@ -67,7 +66,7 @@ public abstract class CatalogoBibliotecario {
         return "CatalogoBibliotecario{" +
                 "codiceIsbn=" + codiceIsbn +
                 ", titolo='" + titolo + '\'' +
-                ", annoPublicazione=" + annoPublicazione +
+                ", annoPublicazione=" + annoPubblicazione +
                 ", numeroPagine=" + numeroPagine +
                 '}';
     }

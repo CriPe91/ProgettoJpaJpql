@@ -42,6 +42,7 @@ public class ArchivioDAO {
             em.getTransaction().begin();
             em.remove(catalogo);
             em.getTransaction().commit();
+            System.out.println("Elemento rimosso: " + isbn);
         } catch (NoResultException e) {
             System.out.println("Elemento non trovato con ISBN: " + isbn);
         }
@@ -94,12 +95,12 @@ public class ArchivioDAO {
 
 
     public List<Prestito> ricercaPrestitiScadutiNonRestituiti() {
-        LocalDate oggi = LocalDate.now();
+        LocalDate dataCorrente = LocalDate.now();
         return em.createQuery(
                         "SELECT p FROM Prestito p " +
-                                "WHERE p.dataRestituzionePrevista < :oggi AND p.dataRestituzioneEffettiva IS NULL",
+                                "WHERE p.dataRestituzionePrevista < :dataCorrente AND p.dataRestituzioneEffettiva IS NULL",
                         Prestito.class)
-                .setParameter("oggi", oggi)
+                .setParameter("dataCorrente", dataCorrente)
                 .getResultList();
     }
 

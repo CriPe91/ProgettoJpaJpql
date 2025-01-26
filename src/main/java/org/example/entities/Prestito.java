@@ -9,17 +9,18 @@ import java.util.List;
 
 public class Prestito {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private long id;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "utente_id")
     private Utente utente;
 
     @ManyToMany
-    @JoinTable(name = "catalogo_prestiti",
-            joinColumns = @JoinColumn(name = "catalogo_id"),
-            inverseJoinColumns = @JoinColumn(name = "prestito_id")
+    @JoinTable(name = "prodottoCatalogo_prestiti",
+            joinColumns = @JoinColumn(name = "prestito_id"),
+            inverseJoinColumns = @JoinColumn(name = "prodottoCatalogo_id")
     )
     private List<CatalogoBibliotecario> elementoPrestato;
 
